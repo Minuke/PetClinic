@@ -33,5 +33,10 @@ public class EventService {
 	public Optional<Event> findEventById(int id)  {
 		return eventRepo.findById(id);
 	}
+	
+	@Transactional
+	public void save(Event event) {
+		eventRepo.save(event);
+	}
 
 }
