@@ -15,6 +15,7 @@
             <th style="width: 200px;">Description</th>
             <th>Start</th>
             <th>End</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -31,7 +32,13 @@
                 </td>
                 <td>
                     <c:out value="${event.end}"/>
-                </td>        
+                </td> 
+                <td>
+                	<spring:url value ="/events/delete/{eventId}" var="eventUrl">
+                		<spring:param name="eventId" value = "${event.id}"/>
+                	</spring:url>
+                	<a href="${fn:escapeXml(eventUrl)}">Delete</a>
+                </td>      
             </tr>
         </c:forEach>
         </tbody>
